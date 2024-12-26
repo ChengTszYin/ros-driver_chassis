@@ -1,0 +1,15 @@
+<launch>
+    <node name="board_debug_node" pkg="stm_driver" type="board_debug_node" output="screen">
+        <rosparam file="$(find stm_driver)/param/config.yaml" command="load" />
+    </node>
+
+    <node name="odom_publisher" pkg="stm_driver" type="odom_publisher">
+		<param name="publish_tf" value="true" />
+        <param name="publish_rate" value="10.0" />
+        <param name="linear_scale_positive" value="1.025" />
+        <param name="linear_scale_negative" value="1.025" />
+        <param name="angular_scale_positive" value="1.078" />
+        <param name="angular_scale_negative" value="1.078" />
+		<param name="angular_scale_accel" value="0.0" />
+	</node>	
+</launch>
